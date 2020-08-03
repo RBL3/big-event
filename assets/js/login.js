@@ -22,16 +22,15 @@ $(function () {
                 username,
                 password
             },
+        }).then(res => {
+            console.log(res);
+            if (res.status === 0) {
+                localStorage.setItem('mytoken', res.token)
+                location.href = `./index.html?mytoken=${res.token}`
+            } else {
+                layui.layer.msg("登录失败用户名或密码错误", { time: 5000, icon: 5 });
+            }
         })
-            .then(res => {
-                console.log(res);
-                if (res.status === 0) {
-                    localStorage.setItem('mytoken', res.token)
-                    location.href = `./index.html?mytoken=${res.token}`
-                } else {
-                    layui.layer.msg("登录失败用户名或密码错误", { time: 5000, icon: 5 });
-                }
-            })
     })
 
     // 注册功能
@@ -78,5 +77,6 @@ $(function () {
         }
         tablogin = !tablogin
     })
+
 
 })

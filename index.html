@@ -87,32 +87,15 @@
         </div>
     </div>
     <script src="./assets/lib/jquery.min.js"></script>
+    <script src="./assets/js/common.js"></script>
     <script src="./assets/lib/layui/layui.all.js"></script>
     <script>
         //JavaScript代码区域
         layui.use('element', function () {
             var element = layui.element;
         });
-
-        $(function () {
-            var loc = location.href;
-            console.log(loc);
-            var n2 = loc.indexOf("=") + 1
-            let token = loc.substring(n2, loc.length)
-            console.log(token);
-            $.ajax({
-                type: "get",
-                url: "http://ajax.frontend.itheima.net/my/userinfo",
-                headers: {
-                    Authorization: decodeURI(token)
-                }
-            })
-                .then(res => {
-                    console.log(res);
-                    console.log(decodeURI(token) === localStorage.getItem("mytoken"));
-                })
-        })
     </script>
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>
