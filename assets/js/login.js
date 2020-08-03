@@ -17,7 +17,7 @@ $(function () {
         let [username, password] = [...$(".layui-input")].map(el => el.value)
         $.ajax({
             type: "post",
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data: {
                 username,
                 password
@@ -25,8 +25,10 @@ $(function () {
         }).then(res => {
             console.log(res);
             if (res.status === 0) {
-                localStorage.setItem('mytoken', res.token)
-                location.href = `./index.html?mytoken=${res.token}`
+
+                sessionStorage.setItem('token', res.token)
+                // location.href = `./index.html?mytoken=${res.token}`
+                location.href = `./index.html`
             } else {
                 layui.layer.msg("登录失败用户名或密码错误", { time: 5000, icon: 5 });
             }
@@ -42,7 +44,7 @@ $(function () {
         // console.log([...$(".layui-input")].map(el => el.value));
         $.ajax({
             type: "post",
-            url: 'http://ajax.frontend.itheima.net/api/reguser',
+            url: '/api/reguser',
             data: {
                 username,
                 password
@@ -77,6 +79,4 @@ $(function () {
         }
         tablogin = !tablogin
     })
-
-
 })
