@@ -42,21 +42,21 @@
             <form class="layui-form" id="regForm">
                 <div class="form-items">
                     <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <div class="form-items">
-                    <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="username" lay-verify="required|username" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
                 </div>
                 <div class="form-items">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="password" lay-verify="required" placeholder="请确认密码" autocomplete="off"
+                    <input type="password" name="password" lay-verify="required|password" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input" id="confirmPass">
+                </div>
+                <div class="form-items">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" lay-verify="required|confirmPass" placeholder="请确认密码" autocomplete="off"
                         class="layui-input">
                 </div>
                 <div class="form-items">
-                    <button class="layui-btn layui-btn-normal">注册</button>
+                    <button id="regBtn" lay-submit class="layui-btn layui-btn-normal">注册</button>
                 </div>
             </form>
 
