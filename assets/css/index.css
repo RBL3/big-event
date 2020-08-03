@@ -1,0 +1,39 @@
+.layui-logo {
+    background: url("../images/logo.png") center no-repeat;
+}
+
+.layui-side .layui-nav .layui-nav-item a span {
+    margin-right: 5px;
+}
+
+.layui-side .layui-nav .layui-nav-item dl dd i {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.headPhoto {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.headPhoto>span {
+    width: 32px;
+    height: 32px;
+    margin: 14px;
+    background-color: #00988B;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+}
+
+.headPhoto a {
+    color: #fff;
+}
+
+.layui-footer {
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-style: italic;
+}
