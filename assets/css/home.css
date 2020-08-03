@@ -1,0 +1,56 @@
+.container-fluid {
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+.layui-row {
+    margin-top: 20px;
+}
+
+.grid-demo {
+    border: 1px solid #e7e7e9;
+}
+
+.layui-col-md3 .grid-demo {
+    height: 100px;
+    border: 1px solid #e7e7e9;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.layui-col-md3 .grid-demo .status {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layui-col-md3 .grid-demo .status em {
+    font-size: 50px;
+    font-style: normal;
+}
+
+.layui-col-md3 .grid-demo .status span {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.layui-col-md3 .grid-demo b {
+    color: #000;
+    display: block;
+    width: 100%;
+    background-color: #e5e5e5;
+    padding: 2px 0;
+    font-weight: 400;
+}
+
+.center_chart {
+    margin-top: -20px;
+    padding: 0 15px;
+}
+
+.center_chart .layui-row .grid-demo {
+    height: 370px;
+    border: 1px solid #e7e7e9;
+}
