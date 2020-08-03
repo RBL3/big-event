@@ -1,12 +1,14 @@
 $(function () {
+    // layui 表单验证
+    var form = layui.form;
+    form.verify({
+        username: [/^[\S]{6,12}$/, "用户名  必须6到12位，且不能出现空格"],
+        password: [/^[\S]{6,12}$/, "密码必须6到12位，且不能出现空格"]
+    })
 
     // 登录功能
     $("#loginForm").submit((e) => {
-
-        if ([...$(".layui-input")].every(el => !el.value)) {
-            layui.layer.msg('用户名或密码为空');
-            return
-        }
+        e.preventDefault()
         let [username, password] = [...$(".layui-input")].map(el => el.value)
         console.log(username, password);
         $.ajax({
@@ -28,11 +30,10 @@ $(function () {
             })
     })
 
-
-
     // 注册功能
     $("#regForm").submit(function (e) {
         e.preventDefault()
+
     })
 
 

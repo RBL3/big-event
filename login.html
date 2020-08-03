@@ -24,16 +24,16 @@
             <form class="layui-form" id="loginForm">
                 <div class="form-items">
                     <i class="layui-icon layui-icon-username"></i>
-                    <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="username" lay-verify="required|username" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input">
                 </div>
                 <div class="form-items">
                     <i class="layui-icon layui-icon-password"></i>
-                    <input type="password" name="password" lay-verify="required" placeholder="请输入密码" autocomplete="off"
-                        class="layui-input">
+                    <input type="password" name="password" lay-verify="required|password" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input">
                 </div>
                 <div class="form-items">
-                    <button class="layui-btn layui-btn-normal">登录</button>
+                    <button lay-submit class="layui-btn layui-btn-normal">登录</button>
                 </div>
             </form>
 
