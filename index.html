@@ -27,7 +27,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="userName">
                         <img src="./assets/images/photo.JPG" class="layui-nav-img">
-                        berlin
+                        <span>berlin</span>
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="">基本资料</a></dd>
@@ -44,15 +44,14 @@
             <div class="layui-side-scroll">
                 <div class="headPhoto">
                     <span>
-                        R
+                        <img src="./assets/images/photo.JPG" class="layui-nav-img">
                     </span>
-                    <a href="javascript:void(0)">欢迎&nbsp;<span class="username">berlin</span></a>
+                    <a class="userName" href="javascript:void(0)">欢迎&nbsp;<span>berlin</span></a>
                 </div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
                     <li class="layui-nav-item layui-nav-itemed">
-
-                        <a class="" href="javascript:;">
+                        <a class="option" href="javascript:;" data-page="./views/home.html">
                             <span class="iconfont icon-home"></span>
                             首页
                         </a>
@@ -63,9 +62,13 @@
                             文章管理
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章类别</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章列表</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>发表文章</a></dd>
+                            <dd><a href="javascript:;" class="option" data-page="./views/articie/category.html"><i
+                                        class="layui-icon layui-icon-app"></i>文章类别</a>
+                            </dd>
+                            <dd><a href="javascript:;" class="option" data-page="./views/articie/list.html"><i
+                                        class="layui-icon layui-icon-app"></i>文章列表</a></dd>
+                            <dd><a href="javascript:;" class="option" data-page="./views/articie/publish.html"><i
+                                        class="layui-icon layui-icon-app"></i>发表文章</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -85,7 +88,7 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域</div>
+            <iframe src="./views/home.html" width="100%" frameborder="0"></iframe>
         </div>
 
         <div class="layui-footer">

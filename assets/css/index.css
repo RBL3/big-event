@@ -18,13 +18,7 @@
 }
 
 .headPhoto>span {
-    width: 32px;
-    height: 32px;
     margin: 14px;
-    background-color: #00988B;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 32px;
 }
 
 .headPhoto a {
