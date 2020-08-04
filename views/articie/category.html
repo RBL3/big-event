@@ -5,10 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/category.css">
 </head>
 
 <body>
-    1
+    <div class="root">
+        <header>
+            <span>文章分类管理</span>
+            <button class="layui-btn layui-btn-normal">添加分类</button>
+        </header>
+        <div class="form">
+
+        </div>
+    </div>
+
+
+    <script src="../../assets/lib/layui/layui.all.js"></script>
+    <!-- <script src="../../assets/lib/template-web.js"></script> -->
+    <script src="../../assets/lib/jquery.min.js"></script>
+
+    <!-- 模板渲染 -->
+    <script id="tbody" type="text/html">
+        <table class="layui-table">
+            <colgroup>
+              <col width="40%">
+              <col width="40%">
+              <col width="20%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>分类名称</th>
+                <th>分类别名</th>
+                <th>操作</th>
+              </tr> 
+            </thead>
+            <tbody>
+
+                <!-- 需要循环渲染部分start -->
+                {{#  layui.each(d, function(index, item){ }}
+              <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.alias}}</td>
+                <td>
+                    <button data-id={{item.Id}} class="layui-btn layui-btn-sm edit">编辑</button>
+                    <button data-id={{item.Id}} class="layui-btn layui-btn-sm layui-btn-danger del">删除</button>
+                </td>
+              </tr>
+                {{#  }); }}
+                <!-- 需要循环渲染部分end -->
+
+            </tbody>
+          </table>
+    </script>
+    <script src="../../assets/js/common.js"></script>
+    <script src="../../assets/js/category.js"></script>
 </body>
 
 </html>

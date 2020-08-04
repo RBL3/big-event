@@ -14,7 +14,7 @@ $(function () {
             }
         }).then(res => {
             if (res.status === 0) {
-                console.log(res);
+                // console.log(res);
                 $(".userName span").text(res.data.username)
                 if (res.data.user_pic) {
                     $(".layui-nav-img").prop("src", res.data.user_pic)

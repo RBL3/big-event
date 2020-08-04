@@ -1,3 +1,7 @@
+body {
+    background-color: #f2f3f5;
+}
+
 .container-fluid {
     padding: 0 15px;
     overflow: hidden;
@@ -12,6 +16,7 @@
 }
 
 .layui-col-md3 .grid-demo {
+    background-color: #fff;
     height: 100px;
     border: 1px solid #e7e7e9;
     text-align: center;
@@ -53,4 +58,15 @@
 .center_chart .layui-row .grid-demo {
     height: 370px;
     border: 1px solid #e7e7e9;
+    background-color: #fff !important;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+#bar {
+    border: 1px solid #e7e7e9;
+    height: 420px;
+    background-color: #fff !important;
 }
