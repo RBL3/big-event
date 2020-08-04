@@ -12,3 +12,22 @@ header {
 header button {
     transform: scale(.8);
 }
+
+.layui-form .layui-form-item .layui-form-label {
+    text-align: center;
+    width: 80px;
+    padding: 10px 0;
+}
+
+.layui-form-item {
+    margin-top: 15px;
+}
+
+.layui-input-block {
+    margin-left: 80px;
+}
+
+.layui-input-block {
+    /* width: 360px; */
+    padding-right: 30px;
+}
