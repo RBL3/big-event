@@ -1,11 +1,11 @@
 $(function () {
-    $(function () {
-        // var loc = location.href;
-        // console.log(loc);
-        // var n2 = loc.indexOf("=") + 1
-        // let token = loc.substring(n2, loc.length)
-        // console.log(token);
-        let token = sessionStorage.getItem("token")
+    // var loc = location.href;
+    // console.log(loc);
+    // var n2 = loc.indexOf("=") + 1
+    // let token = loc.substring(n2, loc.length)
+    // console.log(token);
+    let token = sessionStorage.getItem("token")
+    function loadUserInfo() {
         $.ajax({
             type: "get",
             url: "/my/userinfo",
@@ -27,7 +27,8 @@ $(function () {
             }
 
         })
-    })
+    }
+    loadUserInfo()
 
     // 内容主体区引入html
 
@@ -35,17 +36,8 @@ $(function () {
         $("iframe").prop("src", $(this).data("page"))
     })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
+
+
+
+
