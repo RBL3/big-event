@@ -10,9 +10,6 @@ $(function () {
         $.ajax({
             type: "get",
             url: "/my/article/cates",
-            headers: {
-                Authorization: token
-            }
         }).then(res => {
             if (res.status === 0) {
                 data = res.data
@@ -45,9 +42,6 @@ $(function () {
                 type: "post",
                 url: "/my/article/addcates",
                 data: $(this).serialize(),
-                headers: {
-                    Authorization: token
-                }
             }).then(res => {
                 // console.log(res);
                 if (res.status === 0) {
@@ -69,9 +63,6 @@ $(function () {
             $.ajax({
                 type: "get",
                 url: `/my/article/deletecate/${id}`,
-                headers: {
-                    Authorization: token
-                }
             }).then(res => {
                 if (res.status === 0) {
                     render()
@@ -86,9 +77,6 @@ $(function () {
             $.ajax({
                 type: "get",
                 url: `/my/article/cates/${id}`,
-                headers: {
-                    Authorization: token
-                }
             }).then(res => {
                 if (res.status === 0) {
                     // console.log(res);
@@ -110,9 +98,6 @@ $(function () {
                                 $.ajax({
                                     type: "post",
                                     url: "/my/article/updatecate",
-                                    headers: {
-                                        Authorization: token
-                                    },
                                     data: {
                                         Id: id,
                                         name: $(layero).find(".change")[0].value,

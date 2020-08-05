@@ -25,7 +25,6 @@ $(function () {
         }).then(res => {
             console.log(res);
             if (res.status === 0) {
-
                 sessionStorage.setItem('token', res.token)
                 // location.href = `./index.html?mytoken=${res.token}`
                 location.href = `./index.html`

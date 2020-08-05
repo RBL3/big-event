@@ -5,10 +5,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../assets/lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../../assets/css/list.css">
 </head>
 
 <body>
-    2
+    <div class="root">
+        <header>
+            <span>文章列表</span>
+        </header>
+        <!--筛选部分start -->
+        <form class="layui-form">
+            <div class="layui-input-inline">
+                <select name="quiz2" class="articieClass">
+                    <option value="">请选择分类</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select name="quiz3" class="articiestatus">
+                    <option value="">所有状态</option>
+                    <option value="已发布">已发布</option>
+                    <option value="草稿">草稿</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <button class="layui-btn filter">筛选</button>
+            </div>
+        </form>
+        <!-- 渲染容器根节点 -->
+        <div class="table"></div>
+
+        <div id="demo7"></div>
+
+    </div>
+    <script src="../../assets/lib/jquery.min.js"></script>
+    <script src="../../assets/lib/layui/layui.all.js"></script>
+    <script src="../../assets/lib/nprogress/nprogress.js"></script>
+    <script src="../../assets/js/common.js"></script>
+
+    <!-- 模板引擎渲染文章分类下拉框 -->
+    <script type="text/html" id="form">
+        <form class="layui-form" action="">
+            <div class="layui-input-inline">
+                <select name="quiz2">
+                    <option value="">请选择分类</option>
+                    {{#  layui.each(d, function(index, item){ }}
+                    <option value={{item.name}}>{{item.name}}</option>
+                    {{#  }); }}
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select name="quiz3">
+                    <option value="">所有状态</option>
+                    <option value="已发布">已发布</option>
+                    <option value="未发布">未发布</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <button class="layui-btn">筛选</button>
+            </div>
+        </form>
+    </script>
+
+    <!-- 模板引擎渲染表格 -->
+    <script type="text/html" id="list">
+        <table class="layui-table">
+            <colgroup>
+              <col width="40%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
+              <col width="15%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>文章标题</th>
+                <th>分类</th>
+                <th>发表时间</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr> 
+            </thead>
+            <tbody>
+                <!-- 需要循环渲染部分start -->
+                {{#  layui.each(d, function(index, item){ }}
+              <tr>
+                <td>{{item.title}}</td>
+                <td>{{item.cate_name}}</td>
+                <td>{{item.pub_date}}</td>
+                <td>{{item.state}}</td>
+                <td>
+                    <button data-id={{item.Id}} class="layui-btn layui-btn-sm edit">编辑</button>
+                    <button data-id={{item.Id}} class="layui-btn layui-btn-sm layui-btn-danger del">删除</button>
+                </td>
+              </tr>
+                {{#  }); }}
+                <!-- 需要循环渲染部分end -->
+            </tbody>
+          </table>
+    </script>
+    <script src="../../assets/js/list.js"></script>
 </body>
 
 </html>

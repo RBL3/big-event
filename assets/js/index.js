@@ -1,17 +1,9 @@
 $(function () {
-    // var loc = location.href;
-    // console.log(loc);
-    // var n2 = loc.indexOf("=") + 1
-    // let token = loc.substring(n2, loc.length)
     // console.log(token);
-    let token = sessionStorage.getItem("token")
     function loadUserInfo() {
         $.ajax({
             type: "get",
             url: "/my/userinfo",
-            headers: {
-                Authorization: token
-            }
         }).then(res => {
             if (res.status === 0) {
                 // console.log(res);
@@ -22,8 +14,6 @@ $(function () {
                     $(".layui-nav-img").prop("src", "./assets/images/photo.JPG")
                 }
 
-            } else {
-                location.href = `./login.html`
             }
 
         })
@@ -31,9 +21,17 @@ $(function () {
     loadUserInfo()
 
     // 内容主体区引入html
-
     $(".option").click(function () {
         $("iframe").prop("src", $(this).data("page"))
+    })
+
+    // 退出功能
+    $(".exit").click(function () {
+        layer.confirm('确认退出', { icon: 3, title: '提示' }, function (index) {
+            layer.close(index);
+            sessionStorage.removeItem("token")
+            location.href = './login.html'
+        });
     })
 
 })
