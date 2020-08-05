@@ -5,7 +5,7 @@ $(function () {
             window.NProgress && window.NProgress.start()
         }
         option.url = baseURL + option.url
-        if (option.url.lastIndexOf('/my/') !== -1) {
+        if (option.url.includes('/my/')) {
 
             option.headers = {
                 Authorization: sessionStorage.getItem('token')
@@ -16,9 +16,7 @@ $(function () {
         option.complete = function (res) {
             window.NProgress && window.NProgress.done()
             if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-                // 把无效的token清除
-                sessionStorage.removeItem('mytoken')
-                // 如果身份验证失败了，就跳转到登录页面
+                sessionStorage.removeItem('token')
                 location.href = './login.html'
             }
         }

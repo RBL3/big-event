@@ -3,9 +3,7 @@ $(function () {
     var laytpl = layui.laytpl;
     // 定义数据
     var data
-
     // ajax请求接口
-    let token = sessionStorage.getItem("token")
     function render() {
         $.ajax({
             type: "get",
@@ -13,7 +11,6 @@ $(function () {
         }).then(res => {
             if (res.status === 0) {
                 data = res.data
-                console.log(data);
                 // 获取渲染标签
                 var getTpl = tbody.innerHTML
                     // 获取根节点
@@ -45,10 +42,11 @@ $(function () {
             }).then(res => {
                 // console.log(res);
                 if (res.status === 0) {
-                    layer.closeAll();
+                    layer.closeAll("page");
+                    layui.layer.msg("添加成功", { time: 2000, icon: 6 });
                     render()
                 } else {
-                    layui.layer.msg("添加失败", { time: 5000, icon: 5 });
+                    layui.layer.msg("添加失败", { time: 2000, icon: 5 });
                 }
             })
         })
@@ -106,12 +104,11 @@ $(function () {
                                 }).then(res => {
                                     if (res.status === 0) {
                                         layui.layer.msg("更新成功", { time: 2000, icon: 6 });
-                                        layer.closeAll();
+                                        layer.closeAll("page");
                                         render()
                                     }
                                 })
                             })
-
                         }
                     });
                 }
