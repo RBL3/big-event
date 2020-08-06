@@ -1,0 +1,14 @@
+body {
+    background-color: #f2f3f5;
+}
+
+.root {
+    padding: 10px 15px 0 15px;
+}
+
+header {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

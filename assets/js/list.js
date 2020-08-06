@@ -36,7 +36,6 @@ $(function () {
                     layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
                     jump: function (obj, first) {
                         if (!first) {
-                            console.log(this);
                             limit = obj.limit
                             render(obj.curr, limit)
                         }

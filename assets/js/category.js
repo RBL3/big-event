@@ -71,7 +71,6 @@ $(function () {
             })
         } else if ($(e.target).text().includes("编辑")) {
             // 修改文章分类
-            console.log("编辑");
             $.ajax({
                 type: "get",
                 url: `/my/article/cates/${id}`,

@@ -29,7 +29,7 @@ $(function () {
                 // location.href = `./index.html?mytoken=${res.token}`
                 location.href = `./index.html`
             } else {
-                layui.layer.msg("登录失败用户名或密码错误", { time: 5000, icon: 5 });
+                layui.layer.msg("登录失败用户名或密码错误", { time: 2000, icon: 5 });
             }
         })
     })
@@ -51,14 +51,14 @@ $(function () {
         }).then(res => {
             // console.log(res);
             if (res.status === 0) {
-                layui.layer.msg('注册成功', { time: 5000, icon: 6 });
+                layui.layer.msg('注册成功', { time: 2000, icon: 6 });
                 $(this).text("去注册账号")
                 $(".tab a ").click()
                 // $("loginForm").children()
                 let msg = [username, password];
                 [...$("#loginForm").find("input")].map((el, i) => el.value = msg[i])
             } else {
-                layui.layer.msg(res.message, { time: 5000, icon: 5 });
+                layui.layer.msg(res.message, { time: 2000, icon: 5 });
             }
         })
     })
