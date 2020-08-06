@@ -19,6 +19,9 @@ $(function () {
         })
     }
     loadUserInfo()
+    // window.loadUserInfo = loadUserInfo  添加到全局中
+    //  
+    $.loadUserInfo = loadUserInfo  // 添加到 jqzhong
 
     // 内容主体区引入html
     $(".option").click(function () {

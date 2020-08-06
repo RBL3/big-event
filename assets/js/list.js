@@ -72,6 +72,4 @@ $(function () {
             render(1, limit, articieClass, articiestatus)
         }
     })
-
-
 })
