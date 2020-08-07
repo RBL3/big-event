@@ -8,8 +8,7 @@ $(function () {
 
     // 请求渲染部分
 
-    // 此处有bug 需要修改 每次选择页码都会重新渲染
-    function render(pagenum = 1, pagesize = 10, cate_id, state) {
+    function render(pagenum = 1, pagesize = 3, cate_id, state) {
         $.ajax({
             type: "get",
             url: "/my/article/list",
@@ -22,7 +21,7 @@ $(function () {
         }).then(res => {
 
             if (res.status === 0) {
-                console.log(res);
+                // console.log(res);
                 data = res.data
                 var getTpl = list.innerHTML
                     , view = document.querySelector(".table")
@@ -31,15 +30,20 @@ $(function () {
                     view.innerHTML = html;
                 });
 
+                // console.log(res.total);   // 文章总数
                 // 分页器功能完成
                 laypage.render({
                     elem: 'demo7',
-                    // count: 100,
+                    count: res.total,
+                    curr: pagenum,    // 当前页码
+                    limit: pagesize,  // 分页的条数
                     limits: [3, 10, 30, 40, 100],
                     layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
                     jump: function (obj, first) {
+                        // console.log(obj.count);
                         if (!first) {
                             limit = obj.limit
+                            console.log(obj.curr, limit);
                             render(obj.curr, limit)
                         }
                     }

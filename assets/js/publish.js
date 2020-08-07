@@ -64,7 +64,18 @@ $(function () {
             .cropper(options)        // 重新初始化裁剪区域
     })
 
+    var state
 
+    // 已发布
+    $(".issue").click(function () {
+        state = "已发布"
+    })
+    // 草稿
+    $(".draft").click(function () {
+
+        state = "草稿"
+        console.log(state);
+    })
 
     // 此处加上需要判断点击的按钮  是发布还是保存到草稿
     $(".layui-form").submit(function (e) {
@@ -76,7 +87,7 @@ $(function () {
             // dataURL = a
             let formData = new FormData($(this)[0])
             formData.append("cover_img", dataURL)
-            formData.append("state", "已发布")
+            formData.append("state", state)
             // console.log($("#title").val(), $("#artClass").val(), $("textarea[name=content]").val());
             // console.log(dataURL);
             $.ajax({
