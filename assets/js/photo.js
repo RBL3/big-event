@@ -55,8 +55,6 @@ $(function () {
             }
         })
     })
-
-
     // 子页面调用父页面中的函数 parent.window.loadUserInfo
 
 })

@@ -7,6 +7,8 @@ $(function () {
     // 目前是假数据测试用
 
     // 请求渲染部分
+
+    // 此处有bug 需要修改 每次选择页码都会重新渲染
     function render(pagenum = 1, pagesize = 10, cate_id, state) {
         $.ajax({
             type: "get",
@@ -20,6 +22,7 @@ $(function () {
         }).then(res => {
 
             if (res.status === 0) {
+                console.log(res);
                 data = res.data
                 var getTpl = list.innerHTML
                     , view = document.querySelector(".table")
@@ -44,6 +47,7 @@ $(function () {
             }
         })
     }
+
     render()
     // 筛选部分  
     layui.use("form", function () { //  此处layui方法动态渲染下拉框
@@ -72,4 +76,21 @@ $(function () {
             render(1, limit, articieClass, articiestatus)
         }
     })
+
+    // 删除功能区域
+    $(".table").on("click", ".del", function () {
+        // console.log($(this).data("id"));
+        $.ajax({
+            type: "get",
+            url: `/my/article/delete/${$(this).data("id")}`
+        }).then(res => {
+            if (res.status === 0) {
+                layui.layer.msg("删除成功", { time: 2000, icon: 6 });
+                render()
+            }
+        })
+    })
+
+
 })
+
