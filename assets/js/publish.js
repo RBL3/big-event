@@ -72,7 +72,6 @@ $(function () {
     })
     // 草稿
     $(".draft").click(function () {
-
         state = "草稿"
         console.log(state);
     })
