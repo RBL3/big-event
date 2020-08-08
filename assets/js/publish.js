@@ -15,7 +15,9 @@ $(function () {
     // layedit.sync(index)    // 用于同步编辑器内容到textarea
     // layedit.getSelection(index)   // 获取编辑器选中的文本
 
+    // 初始化富文本
     initEditor()
+
     layui.use("form", function () { //  此处layui方法动态渲染下拉框
         getClassify()
     })
@@ -37,7 +39,7 @@ $(function () {
     var $image = $('#image')
     const options = {
         // 纵横比
-        aspectRatio: 1,
+        aspectRatio: 400 / 280,
         // 指定预览区域
         preview: '.img-preview',
         // crop(event) {
@@ -85,6 +87,7 @@ $(function () {
         }).toBlob(dataURL => {    // 将图片转成	blob二进制  参数就是图片(是个对象)
             // dataURL = a
             let formData = new FormData($(this)[0])
+            console.log(dataURL);
             formData.append("cover_img", dataURL)
             formData.append("state", state)
             // console.log($("#title").val(), $("#artClass").val(), $("textarea[name=content]").val());
@@ -109,8 +112,6 @@ $(function () {
                 }
             })
         })
-
-
 
     })
 

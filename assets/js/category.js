@@ -1,6 +1,8 @@
 $(function () {
 
     var laytpl = layui.laytpl;
+    var form = layui.form
+    console.log(form);
     // 定义数据
     var data
     // ajax请求接口
@@ -24,7 +26,7 @@ $(function () {
     }
     render()
 
-    // 添加文章 /my/article/addcates  name  alias
+    // 添加文章分类 /my/article/addcates  name  alias
     $("#addBtn").on("click", function () {
         layer.open({
             title: "添加分类",
@@ -53,7 +55,7 @@ $(function () {
     })
 
 
-    // 时间委托的形式注册 删除或者编辑时间
+    // 事件委托的形式注册 删除或者编辑时间
     $(".form").on("click", function (e) {
         let id = $(e.target).data("id")
         if ($(e.target).text().includes("删除")) {
@@ -85,9 +87,11 @@ $(function () {
                         area: ['470px', '240px'], //宽高
                         content: changeForm.innerHTML,
                         // 弹出层弹出之后执行的函数
-                        success(layero) {
-                            $(layero).find(".change")[0].value = data.name
-                            $(layero).find(".change")[1].value = data.alias
+                        success(layero) {   // 参数layero是弹出层
+                            console.log(form.val);
+                            form.val("editForm", res.data)
+                            // $(layero).find(".change")[0].value = data.name
+                            // $(layero).find(".change")[1].value = data.alias
                             // 弹出层表单提交
                             $("#changeArtClass").submit(function (e) {
                                 e.preventDefault()
@@ -99,6 +103,7 @@ $(function () {
                                         Id: id,
                                         name: $(layero).find(".change")[0].value,
                                         alias: $(layero).find(".change")[1].value,
+                                        // ...($(this).serialize())
                                     }
                                 }).then(res => {
                                     if (res.status === 0) {
@@ -112,7 +117,6 @@ $(function () {
                     });
                 }
             })
-
         }
 
     })
